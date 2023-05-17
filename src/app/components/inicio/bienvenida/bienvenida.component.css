@@ -1,0 +1,33 @@
+p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.3em;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+hr {
+    border-width: 3px;
+    max-width: 65px;
+    border-color: #bf0811;
+}
+
+.btn-xl {
+    background-color: #bf0811;
+    border-color: #bf0811;
+    margin: 10px;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+}
+
+.btn-xl:hover {
+    background-color: #000000a4;
+    border-color: #000000a4;
+    border-radius: #000000a4;
+    border-width: 3px;
+}
