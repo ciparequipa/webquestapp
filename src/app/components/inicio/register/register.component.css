@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h3{
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.btn-reg{
+    background-color: #bf0811;
+    border-color: #bf0811;
+}

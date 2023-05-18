@@ -4,19 +4,31 @@
             <div class="card text-center" style="padding: 20px;">
                 <h3>Login</h3>
                 <br>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Usuario">
+                <form [formGroup]="login" (ngSubmit)="log()">
+                    <div class="form-group" style="text-align: start;">
+                        <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario">
+                        <span class="text-danger ml-2"
+                        *ngIf="this.login.get('usuario')?.errors?.['required'] && this.login.get('usuario')?.touched">
+                            El usuario <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-group" style="text-align: start;">
+                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="password" minlength="4">
+                        <span class="text-danger ml-2"
+                        *ngIf="this.login.get('password')?.errors?.['required'] && this.login.get('password')?.touched">
+                            La contraseña <strong>es requerida</strong>
+                        </span>
+                        <span class="text-danger ml-2"
+                        *ngIf="this.login.get('password')?.errors?.['minlength']">
+                            La contraseña debe tener <strong>como minimo 4 caracteres</strong>
+                        </span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Contraseña">
+                        <button class="btn btn-primary mr-2 btn-login" [disabled]="login.invalid" type="submit">Aceptar</button>
+                        <button class="btn btn-secondary" routerLink="/inicio">Volver</button>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary mr-2 btn-login">Aceptar</button>
-                        <button class="btn btn-secondary" routerLink="/bienvenidos">Volver</button>
-                    </div>
-                    <div class="form-group">
-                        <a style="color: #bf0811; cursor: pointer;" routerLink="/register">Crear cuenta</a>
+                        <a style="color: #bf0811; cursor: pointer;" routerLink="/inicio/register">Crear cuenta</a>
                     </div>
                 </form>
             </div>
