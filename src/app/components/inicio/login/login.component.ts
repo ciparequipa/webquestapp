@@ -11,6 +11,7 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loading = false;
   login: FormGroup;
 
   constructor(private fb: FormBuilder, private toastr: ToastrService, private router: Router) { 
@@ -29,11 +30,16 @@ export class LoginComponent implements OnInit {
       nombreUsuario: this.login.value.usuario,
       password: this.login.value.password
     }
-    if (usuario.nombreUsuario === 'Gustavo' && usuario.password === '123456') {
-      this.router.navigate(['/dashboard'])
-    }else{
-      this.toastr.error('Usuario o Contraseña incorrecto', 'Error')
-    }
+    this.loading = true;
+    setTimeout(() => {
+      if (usuario.nombreUsuario === 'Gustavo' && usuario.password === '123456') {
+        this.router.navigate(['/dashboard'])
+      }else{
+        this.toastr.error('Usuario o Contraseña incorrecto', 'Error')
+      }
+    this.loading = false;
+    }, 3000);
+
     console.log(usuario);
   }
 
